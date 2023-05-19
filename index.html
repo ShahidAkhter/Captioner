@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captioner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="navbar" class="myNav font-bolder flex f-center f-top bg">
+        <div class="webName flex f-center f-left">Captioner</div>
+    </nav>
+    <div class="main flex f-between">
+
+        <div class="sideBar bg flex f-col m-10 text-justify" id="mySideBar">
+            <div style="font-size: 20px;font-weight: 500;" class="p-0-5" id="sideBarName">Captions</div>
+            <div class="insideSideBar" id="captionContainer">
+                <!-- <div class="outlineRange bg-1 text-size p-5-10 border-round-5 mb-10">
+                    <div class="textsDiv">Hello, world!</div>
+                    <div class="flex align-right">
+                        <div class="bg p-5-10 mr-5 btns text-size-1 border-round-5">00:00</div>
+                        <div class="bg p-5-10 mr-5 btns text-size-1 border-round-5">00:00</div>
+                        <button class="bg p-5-10 mr-5 btns text-size-1 border-round-5">Edit</button>
+                        <button class="bg p-5-10 mr-5 btns text-size-1 border-round-5">Delete</button>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="formMP3">
+            <input type="file" id="documentFile" name="documentFile" accept=".mp3">
+            <label for="documentFile">
+                <div class="container">
+                    <div class="upload-box m-10">
+                        <div style="margin: 16px;border: 2px dashed black;border-radius: 10px;"
+                            class="upload-inner-box">
+                            <span id="fileName">Choose Your MP3 File</span>
+                        </div>
+                    </div>
+                </div>
+            </label>
+        </form>
+
+
+        <div class="container flex f-center f-col f-top m-10 w-50 displayNone" id="captionAdderComponent">
+            <div class="outlineRange bg flex f-center m-10 w-80">
+                <abbr title="Play/Pause"><img src="assets\appImgs\play-solid.svg" class="control-imgs" id="masterPlay"
+                        alt="masterPlay"></abbr>
+                <input type="range" name="range" class="rangeInput" id="progress-bar" min="0" value="0" max="10000">
+                <div class="m-6 align-right flex f-center f-between">
+                    <span class="text-bold" id="currentTimeDur">00:00</span>
+                    <span>/</span>
+                    <span class="text-bold" id="time-duration">00:00</span>
+                </div>
+            </div>
+            <div class="outlineRange bg-1 flex f-center f-col m-10 ">
+                <div class="flex f-center f-between w-80">
+                    <div class="flex">
+                        <button class="bg text-bold m-6 btns" id="startTimerBtn">Start</button>
+                        <button class="bg text-bold m-6 btns" id="endTimerBtn">End</button>
+                    </div>
+                    <div class="flex f-center">
+                        <abbr title="hours : minutes : seconds"><input type="text"
+                                class="bg text-bold m-6 btns w-5 text-center" id="startTimerDisplayer"
+                                value="00:00"></abbr>
+                        <span style="font-size: 20px;">to</span>
+                        <abbr title="hours : minutes : seconds"><input type="text"
+                                class="bg text-bold m-6 btns w-5 text-center" id="endTimerDisplayer"
+                                value="00:00"></abbr>
+                    </div>
+                </div>
+                <div>
+                    <textarea name="text" class="w-78 writer resize-vertical text-size" id="captionWriter"
+                        placeholder="Type captions here..." cols="40" rows="14"></textarea>
+                </div>
+                <div class="flex f-center f-between w-80">
+                    <div class="left">
+                        <button class="bg text-bold m-6 btns" id="clearCaptions">Clear Captions</button>
+                        <button class="bg text-bold m-6 btns" id="copy">Copy</button>
+                    </div>
+                    <div class="right">
+                        <button class="bg text-bold m-6 btns" id="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sideBar bg flex f-col m-10 text-justify">
+            <div class="insideSideBar">
+                <div style="font-size: 20px;font-weight: 500;" class="p-5-10" id="sideBarName">Edit-Disabled</div>
+                <div class="p-5-10 text-center flex f-center">
+                    <textarea name="text" class="writer resize-vertical text-size" id="captionEditWriter"
+                        placeholder="Edit captions here..." cols="40" rows="10" disabled></textarea>
+                </div>
+                <div class="flex f-center text-center">
+                    <abbr title="hours : minutes : seconds"><input type="text"
+                            class="bg-1 text-bold m-6 btns w-5 text-center" id="startTimerEditDisplayer" value="00:00"
+                            disabled></abbr>
+                    <span style="font-size: 20px;">to</span>
+                    <abbr title="hours : minutes : seconds"><input type="text"
+                            class="bg-1 text-bold m-6 btns w-5 text-center" id="endTimerEditDisplayer" value="00:00"
+                            disabled></abbr>
+                </div>
+                <div class="text-center">
+                    <button class="bg-1 text-bold m-6 btns w-16" id="editSubmit" disabled>Edit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="audioComponent.js"></script>
+    <script src="captionAdder.js"></script>
+</body>
+
+</html>

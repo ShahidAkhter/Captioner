@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    user-select: none;
+    overflow-x: hidden;
+    background: rgb(201, 255, 131);
+}
+
+button {
+    cursor: pointer;
+}
+
+.myNav {
+    position: sticky !important;
+    top: 0;
+    width: 100vw;
+    height: 40px;
+    font-size: 28px;
+    padding: 8px;
+    border-bottom: 1px solid black;
+    font-weight: 600;
+
+}
+
+
+.webName {
+    padding-left: 12px;
+}
+
+.main {
+    width: 100vw;
+}
+
+.sideBar {
+    height: 86vh;
+    width: 21.5vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.insideSideBar {
+    width: 21vw;
+    overflow-y: auto;
+}
+
+.textsDiv {
+    margin-bottom: 4px;
+}
+
+.rangeInput {
+    width: 70vmin;
+    height: 6px;
+    accent-color: green;
+    cursor: pointer;
+}
+
+.outlineRange {
+    padding: 20px 40px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.control-imgs {
+    position: relative;
+    top: 2px;
+    height: 25px;
+    width: 25px;
+    padding-right: 6px;
+    cursor: pointer;
+}
+
+.btns {
+    padding: 10px 20px;
+    border: 1px solid black;
+    font-size: 20px;
+    border-radius: 10px;
+
+}
+
+.writer {
+    border-radius: 10px;
+    padding: 10px 4px;
+}
+
+.displayNone {
+    display: none !important;
+}
+
+.resize-vertical {
+    resize: vertical;
+}
+
+.w-5 {
+    width: 5vw;
+}
+
+.w-4 {
+    width: 4vw;
+}
+
+.w-16 {
+    width: 16vw;
+}
+
+.w-50 {
+    width: 50vw;
+}
+
+.w-80 {
+    width: 80vmin;
+}
+
+.w-78 {
+    width: 78vmin;
+}
+
+.w-70 {
+    width: 70vw;
+}
+
+.m-6 {
+    margin: 6px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.m-4 {
+    margin: 4px;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.p-5-10 {
+    padding: 5px 10px;
+}
+.p-0-5 {
+    padding: 5px 0;
+}
+
+.bg {
+    background: rgb(89, 211, 64);
+}
+
+.bg-1 {
+    background: rgb(142, 255, 89);
+}
+
+.text-size {
+    font-size: 16px;
+}
+
+.text-size-1 {
+    font-size: 14px;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.align-right {
+    align-self: self-end;
+}
+
+.align-left {
+    align-self: self-start;
+}
+
+.border-round-5 {
+    border-radius: 5px;
+}
+
+.flex {
+    display: flex;
+}
+
+.f-col {
+    flex-direction: column;
+}
+
+.f-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.f-col-reverse {
+    flex-direction: column-reverse !important;
+}
+
+.f-left {
+    align-items: flex-start;
+}
+
+.f-top {
+    justify-content: flex-start;
+}
+
+.f-between {
+    justify-content: space-between;
+}
+
+.f-around {
+    justify-content: space-around;
+}
+
+.f-wrap {
+    flex-wrap: wrap;
+}
+
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(0, 255, 170);
+    border-left: 5.5px solid rgb(0, 255, 170);
+    border-right: 5.5px solid rgb(0, 255, 170);
+    border-top: 4px solid rgb(0, 255, 170);
+    border-bottom: 4px solid rgb(0, 255, 170);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(39, 224, 2);
+    border-left: 3.5px solid rgb(0, 255, 170);
+    border-right: 3.5px solid rgb(0, 255, 170);
+    border-top: 4px solid rgb(0, 255, 170);
+    border-bottom: 4px solid rgb(0, 255, 170);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 183, 255);
+}
+
+
+
+
+
+.upload-box {
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background: rgb(142, 255, 89);
+}
+
+.upload-inner-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vmin;
+    width: 80vmin;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.upload-box .upload-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.upload-box .upload-text {
+    font-size: 16px;
+}
+
+#documentFile{
+    display: none;
+
+}
+
+.upload-box span {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(89, 211, 64);
+    padding: 10px 15px;
+    cursor: pointer;
+}
