@@ -111,6 +111,8 @@ document.getElementById('documentFile').addEventListener('change', function () {
     } else {
         captionArr = JSON.parse(localStorage.getItem(`${fileName.innerHTML}`));
         addingCaptions()
+        startTimerDisplayer.value=captionArr[captionArr.length-1]['startTime']
+        endTimerDisplayer.value=captionArr[captionArr.length-1]['endTime']
         if (captionContainer.innerText === '') {
             captionContainer.innerText = 'Captions will display here...';
         }
@@ -152,4 +154,14 @@ document.getElementById('clearAll').addEventListener('click', () => {
     if (captionContainer.innerText === '') {
         captionContainer.innerText = 'Captions will display here...';
     }
+    document.getElementById(`captionAdderComponent`).classList.add('displayNone')
+    document.getElementById(`formMP3`).classList.remove('displayNone')
+    if (audio.played) {
+        audio.pause();
+        masterPlay.src = play;
+    }
+})
+document.getElementById('getNewFile').addEventListener('click', () => {
+    document.getElementById(`captionAdderComponent`).classList.add('displayNone')
+    document.getElementById(`formMP3`).classList.remove('displayNone')
 })

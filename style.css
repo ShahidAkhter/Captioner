@@ -36,6 +36,12 @@ button {
     padding-left: 12px;
 }
 
+.navBtns{
+    transition: all in 0.7s;
+}
+.navBtns:hover{
+    color: rgb(70, 70, 70);
+}
 .main {
     width: 100vw;
 }
@@ -231,6 +237,9 @@ button {
 
 .f-wrap {
     flex-wrap: wrap;
+}
+.cursor-pointer{
+    cursor: pointer;
 }
 
 
