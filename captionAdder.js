@@ -32,6 +32,7 @@ submit.addEventListener('click', () => {
         "captionIs": captionWriter.value
     });
     captionWriter.value = '';
+    localStorage.setItem(`${fileName.innerHTML}`, JSON.stringify(captionArr));
     addingCaptions();
 });
 
@@ -43,6 +44,7 @@ const addingCaptions = () => {
             captionArr.splice(i, 1);
             const captionElement = document.getElementById(`caption${i}`);
             captionElement.parentNode.removeChild(captionElement);
+            localStorage.setItem(`${fileName.innerHTML}`, JSON.stringify(captionArr));
 
             if (captionContainer.innerText === '') {
                 captionContainer.innerText = 'Captions will display here...';
@@ -82,6 +84,7 @@ document.getElementById(`editSubmit`).addEventListener('click', () => {
     captionArr[editIndex]["startTime"] = document.getElementById(`startTimerEditDisplayer`).value;
     captionArr[editIndex]["endTime"] = document.getElementById(`endTimerEditDisplayer`).value;
     captionArr[editIndex]["captionIs"] = document.getElementById(`captionEditWriter`).value;
+    localStorage.setItem(`${fileName.innerHTML}`, JSON.stringify(captionArr));
     addingCaptions();
     editChange(true)
     document.getElementById('sideBarName').innerText = `Edit-Disabled-${editIndex + 1}`
@@ -94,13 +97,24 @@ const editChange = (valueIs) => {
     document.getElementById('editSubmit').disabled = valueIs
 }
 
+
 document.getElementById('documentFile').addEventListener('change', function () {
     let file = this.files[0];
-    let fileName = document.getElementById('fileName');
-    fileName.innerHTML = file.name;
+    Array.from(document.getElementsByClassName('fileNameOption')).forEach(element => {
+        element.innerHTML=file.name
+    });
     audio.src = URL.createObjectURL(file);
     document.getElementById(`captionAdderComponent`).classList.remove('displayNone')
     document.getElementById(`formMP3`).classList.add('displayNone')
+    if (!localStorage.getItem(`${fileName.innerHTML}`)) {
+        localStorage.setItem(`${fileName.innerHTML}`, '[]');
+    } else {
+        captionArr = JSON.parse(localStorage.getItem(`${fileName.innerHTML}`));
+        addingCaptions()
+        if (captionContainer.innerText === '') {
+            captionContainer.innerText = 'Captions will display here...';
+        }
+    }
 });
 
 document.getElementById('copy').addEventListener('click', () => {
@@ -124,6 +138,10 @@ document.getElementById('copy').addEventListener('click', () => {
     });
 })
 document.getElementById('clearCaptions').addEventListener('click', () => {
-    captionArr=[];
+    captionArr = [];
+    localStorage.removeItem(`${fileName.innerHTML}`)
     addingCaptions();
+    if (captionContainer.innerText === '') {
+        captionContainer.innerText = 'Captions will display here...';
+    }
 })
