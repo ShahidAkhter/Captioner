@@ -101,7 +101,7 @@ const editChange = (valueIs) => {
 document.getElementById('documentFile').addEventListener('change', function () {
     let file = this.files[0];
     Array.from(document.getElementsByClassName('fileNameOption')).forEach(element => {
-        element.innerHTML=file.name
+        element.innerHTML = file.name
     });
     audio.src = URL.createObjectURL(file);
     document.getElementById(`captionAdderComponent`).classList.remove('displayNone')
@@ -140,6 +140,14 @@ document.getElementById('copy').addEventListener('click', () => {
 document.getElementById('clearCaptions').addEventListener('click', () => {
     captionArr = [];
     localStorage.removeItem(`${fileName.innerHTML}`)
+    addingCaptions();
+    if (captionContainer.innerText === '') {
+        captionContainer.innerText = 'Captions will display here...';
+    }
+})
+document.getElementById('clearAll').addEventListener('click', () => {
+    captionArr = [];
+    localStorage.clear()
     addingCaptions();
     if (captionContainer.innerText === '') {
         captionContainer.innerText = 'Captions will display here...';
